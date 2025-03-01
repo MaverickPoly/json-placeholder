@@ -33,7 +33,7 @@ app.set("view engine", "ejs");
 
 // Setup
 app.use(express.json());
-app.use(express.static('static'));
+app.use(express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(favicon(path.join(process.cwd(), 'static', "imgs", 'favicon.ico')));
