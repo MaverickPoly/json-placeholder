@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import favicon from "serve-favicon";
 import path from "path"
+import { fileURLToPath } from "url";
 
 // Routers
 import usersRouter from "./routers/users_route.js";
@@ -15,6 +16,9 @@ import authRouter from "./routers/auth_router.js"
 const PORT = process.env.PORT || 8000;
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 const requestLogger = (req, res, next) => {
     res.on("finish", () => {
@@ -23,10 +27,12 @@ const requestLogger = (req, res, next) => {
     next();
 }
 
-
+// Setting
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Setup
+app.use(express.json());
 app.use(express.static('static'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
