@@ -1,7 +1,8 @@
 # Altair JSON Placeholder
 
 Altair JSON Placeholder is a free online REST API that provides fake data for testing and prototyping. It is designed for frontend, backend, and mobile app development.
-Final Website Link: https://json-placeholder-olive.vercel.app/
+
+Final Website Link: [Here](https://json-placeholder-olive.vercel.app/)
 
 ## Features
 
