@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import favicon from "serve-favicon";
 import path from "path"
+import cors from "cors";
 import { fileURLToPath } from "url";
 
 // Routers
@@ -27,9 +28,12 @@ const requestLogger = (req, res, next) => {
     next();
 }
 
-// Setting
+// Settings
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+// Cors 
+app.use(cors({ origin: "*" }))
 
 // Setup
 app.use(express.json());
